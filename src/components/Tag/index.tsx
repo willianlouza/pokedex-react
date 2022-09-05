@@ -2,12 +2,10 @@ import React from "react";
 import { StyledTag } from "./style";
 
 interface IProps {
-  color: string;
-  content: string;
+  image: string;
   width: number;
   height: number;
-  pointer?: boolean;
-  onClick?: () => void;
+  class: string;
 }
 export default class Tag extends React.Component<IProps> {
   constructor(props: IProps) {
@@ -17,12 +15,12 @@ export default class Tag extends React.Component<IProps> {
   render(): React.ReactNode {
     return (
       <StyledTag
-        color={this.props.color}
-        content={this.props.content}
+        className={`icon ${this.props.class}`}
         width={this.props.width}
         height={this.props.height}
-        onClick={() => this.props.onClick?.()}
-      />
+      >
+        <img src={this.props.image} />
+      </StyledTag>
     );
   }
 }

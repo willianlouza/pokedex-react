@@ -25,7 +25,7 @@ export const Card = styled.div<CardProps>`
 `;
 
 export const Mask = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -38,7 +38,6 @@ export const Mask = styled.div`
 `;
 
 interface ImageProps {
-  src: string;
   width: number;
   height: number;
 }
@@ -54,9 +53,9 @@ export const PokeImage = styled.img.attrs(props =>{
   z-index: 9;
 `;
 
-export const BackgroundPokeball = styled.img.attrs((props) => ({
+export const BackgroundPokeball = styled.img.attrs({
   src: PokeballBG,
-}))`
+})`
   position: absolute;
   width: 150px;
   height: 150px;

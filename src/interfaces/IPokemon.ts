@@ -8,5 +8,5 @@ export default interface IPokemon {
 
 export interface IPokemonType {
   name: string;
-  color: string;
+  image: string;
 }

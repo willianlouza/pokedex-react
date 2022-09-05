@@ -1,4 +1,6 @@
-import IPokemon, { IPokemonType } from "../src/interfaces/IPokemon";
+import IDictionary from "../interfaces/IDictionary";
+import IPokemon, { IPokemonType } from "../interfaces/IPokemon";
+import icons from "./Icons";
 const sourceURL = "https://pokeapi.co/api/v2/";
 
 export async function loadPokemons(offset: number): Promise<IPokemon[]> {
@@ -14,7 +16,7 @@ export async function loadPokemons(offset: number): Promise<IPokemon[]> {
   return pokemons;
 }
 
-export async function getPokemonById(id: number): Promise<IPokemon | null> {
+export async function getPokemonById(id: number | string): Promise<IPokemon | null> {
   const pokemon = await getPokemon(`${sourceURL}pokemon/${id}`);
   return pokemon;
 }
@@ -25,15 +27,15 @@ export async function getPokemon(url: string): Promise<IPokemon> {
   const pokemonType: IPokemonType[] = [];
   json.types.map((poke: any) => {
     pokemonType.push({
-      name: capitalizeLetter(poke.type.name),
-      color: typesColor[poke.type.name],
+      name: poke.type.name,
+      image: icons(poke.type.name),
     });
   });
 
   const transformedPokemon: IPokemon = {
     index: json.id,
     name: capitalizeLetter(json.name),
-    color: pokemonType[0].color,
+    color: typesColor[pokemonType[0].name],
     image: `${json.sprites.other["official-artwork"].front_default}`,
     types: pokemonType,
   };
@@ -45,27 +47,23 @@ export function capitalizeLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export const typesColor: types = {
-  normal: "#B1B1B1",
-  fighting: "#b64d19",
-  flying: "#277ba1",
-  poison: "#823ec3",
-  ground: "#8a8331",
-  rock: "#715c3d",
-  bug: "#2f9651",
-  ghost: "#83417a",
-  steel: "#6c6c6c",
-  fire: "#a8282b",
-  water: "#145eab",
-  grass: "#7d8545",
-  electric: " #ba9a22",
-  psychic: " #452a8d",
-  ice: "#659dba",
-  dragon: "#d57931",
-  dark: "#232424",
-  fairy: "#ba65a0",
-};
-
-type types = {
-  [key: string]: string;
+export const typesColor: IDictionary = {
+  normal: "#A0A29F",
+  fighting: "#D3425F",
+  flying: "#A1BBEC",
+  poison: "#B763CF",
+  ground: "#DA7C4D",
+  rock: "#C9BB8A",
+  bug: "#92BC2C",
+  ghost: "#5F6DBC",
+  steel: "#5695A3",
+  fire: "#FBA54C",
+  water: "#539DDF",
+  grass: "#5FBD58",
+  electric: " #F2D94E",
+  psychic: " #FA8581",
+  ice: "#75D0C1",
+  dragon: "#0C69C8",
+  dark: "#595761",
+  fairy: "#EE90E6",
 };
