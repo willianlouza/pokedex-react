@@ -42,9 +42,10 @@ interface ImageProps {
   width: number;
   height: number;
 }
-export const PokeImage = styled.img<ImageProps>`
+export const PokeImage = styled.img.attrs(props =>{
+  src: props.src
+})<ImageProps>`
   position: absolute;
-  src: url(${(props: ImageProps) => props.src});
   width: ${(props: ImageProps) => props.width} px;
   height: ${(props: ImageProps) => props.height}px;
   left: 50%;

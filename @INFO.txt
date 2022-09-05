@@ -6,6 +6,13 @@
 #303031
 
 
+
+#FF1F1F
+#363B81
+#5DB9FF
+#FBD743
+#FFFFFF
+
 https://pokeapi.co/api/v2/
 
 
@@ -13,7 +20,7 @@ Icone Pokebola
 https://img.icons8.com/ios-filled/50/ffff/pokeball--v2.png
 
 
-
+USAR BOTAO PREV NEXT INVES DE VER MAIS
 
 //---------------------//
 

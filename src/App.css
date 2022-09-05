@@ -1,11 +1,44 @@
-.App{
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.Container{
-  padding: 20px;
+
+.TopBar {
+  position: fixed;
+  height: 20px;
+  top: 0;
+  width: 100vw;
+  background-color: #ff1f1f;
+  box-shadow: inset 0 -10px #303031;
+  z-index: 9;
+}
+
+.Container {
+  margin-top: 20px;
+}
+
+.GridArea {
   width: 100%;
+  padding: 20px;
   box-sizing: border-box;
+}
+
+.LoadBtn {
+  margin-bottom: 26px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  width: 40vw;
+  height: 35px;
+  background-color: #1975ca;
+  color: #fff;
+  box-shadow: 0 10px 0 #125b99;
+}
+.LoadBtn:hover {
+  filter: brightness(0.9);
+}
+.LoadBtn:active {
+  filter: brightness(1.2);
 }

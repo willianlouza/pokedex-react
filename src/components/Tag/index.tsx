@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag } from "./style";
+import { StyledTag } from "./style";
 
 interface IProps {
   color: string;
@@ -9,19 +9,18 @@ interface IProps {
   pointer?: boolean;
   onClick?: () => void;
 }
-export default class TypeTag extends React.Component<IProps> {
+export default class Tag extends React.Component<IProps> {
   constructor(props: IProps) {
     super(props);
   }
 
   render(): React.ReactNode {
     return (
-      <Tag
+      <StyledTag
         color={this.props.color}
         content={this.props.content}
         width={this.props.width}
         height={this.props.height}
-        pointer={this.props.pointer}
         onClick={() => this.props.onClick?.()}
       />
     );

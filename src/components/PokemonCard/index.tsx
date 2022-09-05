@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import IPokemon, { IPokemonType } from "../../interfaces/IPokemon/IPokemon";
+import IPokemon from "../../interfaces/IPokemon";
 import { Card, PokeImage, Mask, BackgroundPokeball } from "./style";
-import TypeTag from "../TypeTag";
+import Tag from "../Tag";
 
 interface IProps {
   pokemon: IPokemon;
@@ -17,7 +17,7 @@ export default class PokemonCard extends React.Component<IProps> {
     this.tags = [];
     this.props.pokemon.types.forEach((type, key) => {
       this.tags.push(
-        <TypeTag
+        <Tag
           key={key}
           color={type.color}
           width={50}
