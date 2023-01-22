@@ -37,8 +37,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <div className="pt-24 flex flex-col gap-16">
-          <SearchBar className="m-auto" />
+        <div className="pt-24 px-2 flex flex-col gap-16">
+          <div className="m-auto w-full">
+            <SearchBar />
+          </div>
           <div className="flex flex-wrap place-content-center gap-4 place-items-center">
             {pokemons.map((pokemon, i) => {
               return <PokemonCard key={i} id={i + 1} />;
