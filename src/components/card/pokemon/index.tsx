@@ -1,5 +1,5 @@
 import api from "@/api/api";
-import { zeroBefore } from "@/utils/formatter";
+import { withZeroBefore } from "@/utils/formatter";
 import { toPokemon } from "@/utils/transformer";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,7 +38,7 @@ export default function PokemonCard(props: IProps) {
     <div className="max-w-fit">
       <Link href={`pokemon/${id}`} className="group relative">
         <h1 className="absolute z-20 text-6xl text-white/40 font-black top-1 left-1">
-          #{zeroBefore(+id)}
+          #{withZeroBefore(+id)}
         </h1>
         <div className="absolute top-0 left-0 w-full h-full rounded-lg bg-transparent z-10 group-hover:bg-black/25"></div>
         <div

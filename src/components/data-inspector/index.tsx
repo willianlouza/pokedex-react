@@ -1,5 +1,5 @@
 import IPokemon from "@/interfaces/pokemon";
-import { zeroBefore } from "@/utils/formatter";
+import { withZeroBefore } from "@/utils/formatter";
 import Tag from "../tag";
 
 interface IProps {
@@ -12,7 +12,7 @@ export default function PokemonDataInspector(props: IProps) {
       <tbody className="text-left">
         <tr>
           <th>ID</th>
-          <td>#{zeroBefore(pokemon.id)}</td>
+          <td>#{withZeroBefore(pokemon.id)}</td>
         </tr>
         <tr>
           <th>Height</th>

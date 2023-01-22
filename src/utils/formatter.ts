@@ -1,4 +1,4 @@
-export function zeroBefore(n: number) {
+export function withZeroBefore(n: number) {
   if (n < 10) {
     return "00" + n;
   } else if (n < 100) {
@@ -7,15 +7,15 @@ export function zeroBefore(n: number) {
   return n;
 }
 
-export function clamp(value: number, min: number, max: number) {
+export function toRange01(value: number, min: number, max: number) {
   return (value - min) / (max - min);
 }
 
-export function capitalize(s: string): string {
-  const split = s.split("-");
-  let aux: string[] = [];
+export function capitalizeFirstLetter(text: string): string {
+  const split = text.split("-");
+  let result: string[] = [];
   split.forEach((str) => {
-    aux.push(str.charAt(0).toUpperCase() + str.slice(1));
+    result.push(str.charAt(0).toUpperCase() + str.slice(1));
   });
-  return aux.join(" ");
+  return result.join(" ");
 }

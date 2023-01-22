@@ -1,4 +1,4 @@
-import { clamp } from "../../utils/formatter";
+import { toRange01 } from "../../utils/formatter";
 import { motion } from "framer-motion";
 
 interface IProps {
@@ -15,7 +15,7 @@ export default function Stat(props: IProps) {
         <span className="absolute right-2 text-2xl text-gray-500 font-semibold">{value}</span>
         <motion.div
           initial={{ scaleX: 0 }}
-          animate={{scaleX:clamp(value, 0, 180)}}
+          animate={{scaleX:toRange01(value, 0, 180)}}
           transition={{duration: 0.5}}
           className={`${colorClass} h-full w-full origin-left rounded-lg`}
         ></motion.div>
