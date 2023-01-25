@@ -1,6 +1,6 @@
 import api from "@/api/api";
 import { useState } from "react";
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation";
 
 interface IProps {
   className?: string;
@@ -19,7 +19,7 @@ export default function SearchBar(props: IProps) {
       return;
     }
 
-    router.push(`/pokemon/${pokemon.id}`)
+    router.push(`/pokemon/${pokemon.id}`);
   };
 
   return (
@@ -51,7 +51,7 @@ export default function SearchBar(props: IProps) {
         <input
           onChange={(e) => {
             setError(false);
-            setValue(e.target.value);
+            setValue(e.target.value.toLowerCase());
           }}
           value={value}
           type="search"
